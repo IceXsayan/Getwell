@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Valentine's Day</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@600&display=swap');
+
+    body {
+      background: linear-gradient(to bottom right, #ffdde1, #ee9ca7, #ff758c);
+      background-size: 200% 200%;
+      animation: gradientMotion 6s ease-in-out infinite;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+      position: relative;
+    }
+
+    @keyframes gradientMotion {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 100% 100%; }
+    }
+
+    .message-container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 20px;
+      width: 90%;
+      max-width: 450px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      position: absolute;
+      z-index: 2;
+      border: 3px solid #ff69b4;
+      box-sizing: border-box;
+      transition: transform 0.8s, opacity 0.5s;
+    }
+
+    .hidden {
+      opacity: 0;
+      transform: scale(0.9);
+      pointer-events: none;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #ff1493;
+      text-shadow: 2px 2px 8px rgba(255, 20, 147, 0.3);
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    p {
+      font-size: 1.5em;
+      color: #333;
+      line-height: 1.6;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .love-button {
+      background: #ff1493;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      font-family: 'Great Vibes', cursive;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .love-button:hover {
+      background: #ff69b4;
+      transform: scale(1.1);
+      box-shadow: 0 4px 15px rgba(255, 20, 147, 0.5);
+    }
+
+    .love-letter {
+      display: none;
+      text-align: center;
+    }
+
+    .floating {
+      position: absolute;
+      font-size: 40px;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 1; }
+      50% { transform: translateY(-30px) rotate(15deg); }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    .heart { color: #ff1493; left: 10%; top: 20%; }
+    .rose { color: #ff0000; right: 10%; top: 30%; }
+    .sparkle { color: #ffea00; left: 50%; bottom: 10%; }
+  </style>
+</head>
+<body>
+  <div class="message-container" id="card">
+    <h1>Happy Valentine's Day ❤️</h1>
+    <p>"Every moment with you is like a dream I never want to wake up from..."</p>
+    <div class="button-container">
+      <button class="love-button" onclick="openLetter()">Open My Love Letter 💌</button>
+    </div>
+  </div>
+
+  <div class="message-container hidden" id="letter">
+    <p>My dearest, <br><br> I wanted to write you this letter to express just how much you mean to me...<br><br> Forever yours, ❤️</p>
+    <button class="love-button" onclick="flipCardBack()">Go Back</button>
+  </div>
+
+  <div class="floating heart">❤</div>
+  <div class="floating rose">🌹</div>
+  <div class="floating sparkle">✨</div>
+
+  <script>
+    function openLetter() {
+      document.getElementById('card').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('card').style.display = 'none';
+        document.getElementById('letter').style.display = 'block';
+        document.getElementById('letter').classList.remove('hidden');
+      }, 500);
+    }
+
+    function flipCardBack() {
+      document.getElementById('letter').classList.add('hidden');
+      setTimeout(() => {
+        document.getElementById('letter').style.display = 'none';
+        document.getElementById('card').style.display = 'block';
+        document.getElementById('card').classList.remove('hidden');
+      }, 500);
+    }
+  </script>
+</body>
+</html>
